@@ -1,0 +1,7 @@
+.calloutBlade {
+  padding: 56px 0;
+}
+
+.contentWrapper {
+  composes: g-grid-container from global;
+}

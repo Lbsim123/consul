@@ -1,11 +1,10 @@
 import UseCases from '@hashicorp/react-use-cases'
 import ProductFeaturesList from '@hashicorp/react-product-features-list'
-import Callouts from '@hashicorp/react-callouts'
 import LearnCallout from '@hashicorp/react-learn-callout'
-
 import MiniCTA from 'components/mini-cta'
 import HcpCalloutSection from 'components/hcp-callout-section'
 import CtaHero from 'components/cta-hero'
+import CalloutBlade from 'components/callout-blade'
 import ConsulEnterpriseComparison from 'components/enterprise-comparison/consul'
 import PrefooterCTA from 'components/prefooter-cta'
 import CaseStudyCarousel from 'components/case-study-carousel'
@@ -40,29 +39,73 @@ export default function HomePage() {
         }}
       />
 
-      <Callouts
-        layout="two-up"
-        product="neutral"
-        items={[
+      <CalloutBlade
+        title="Consul Service Mesh"
+        callouts={[
           {
             icon: require('./img/kubernetes/logo.svg?include'),
-            heading: 'Consul Service Mesh on Kubernetes',
-            content:
-              'Use Helm to deploy and CRDs to configure Consul on Kubernetes.',
+            title: 'For Kubernetes',
+            description:
+              'Install Consul using Helm charts and deploy using Custom Resource Definitions (CRDs).',
+            eyebrow: 'Tutorial',
             link: {
-              text: 'Get started',
+              text: 'Install Consul on your Kubernetes cluster',
               url:
-                'https://learn.hashicorp.com/tutorials/consul/service-mesh-deploy?utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS',
+                'https://learn.hashicorp.com/tutorials/consul/service-mesh-deploy?in=consul/gs-consul-service-mesh',
             },
           },
           {
             icon: require('./img/kubernetes/communication-arrows.svg?include'),
-            heading: 'Consul as a Service Mesh',
-            content:
-              'Simplify, observe, and secure service to service communication for microservice architectures.',
+            title: 'For Any Runtime',
+            description:
+              'Secure services and service-to-service communications and connect external services with terminating gateways.',
+            eyebrow: 'Tutorial',
             link: {
-              text: 'Read more',
-              url: '/docs/connect',
+              text: 'Consul Service Mesh',
+              url:
+                'https://learn.hashicorp.com/tutorials/consul/service-mesh-deploy-vms?in=consul/developer-mesh',
+            },
+          },
+        ]}
+      />
+
+      <CalloutBlade
+        title="Consul with HashiCorp Stack"
+        callouts={[
+          {
+            icon: require('@hashicorp/mktg-logos/product/nomad/primary/color.svg'),
+            title: 'Consul-Nomad Integration',
+            description:
+              'Secure Nomad jobs with Consul Service Mesh and use Traffic Splitting for zero-downtime, blue-green, canary deployments.',
+            eyebrow: 'Tutorials',
+            link: {
+              text: 'Nomad’s integration with Consul',
+              url:
+                'https://learn.hashicorp.com/collections/nomad/integrate-consul',
+            },
+          },
+          {
+            icon: require('@hashicorp/mktg-logos/product/terraform/primary/color.svg'),
+            title: 'Infrastructure Automation with Consul',
+            description:
+              'Use the Terraform provider ecosystem to drive relevant changes to your infrastructure based on Consul services.',
+            eyebrow: 'Tutorials',
+            link: {
+              text: 'Consul Terraform Sync',
+              url:
+                'https://learn.hashicorp.com/tutorials/consul/consul-terraform-sync-intro?in=consul/network-infrastructure-automation',
+            },
+          },
+          {
+            icon: require('@hashicorp/mktg-logos/product/vault/primary/color.svg'),
+            title: 'Secure Consul with Vault',
+            description:
+              'Integrate Consul with Vault and consul-template to securely store and rotate your encryption key and certificates.',
+            eyebrow: 'Tutorials',
+            link: {
+              text: 'Enforce security with Consul and Vault',
+              url:
+                'https://learn.hashicorp.com/collections/consul/vault-secure',
             },
           },
         ]}
