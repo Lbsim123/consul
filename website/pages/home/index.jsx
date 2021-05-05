@@ -13,7 +13,33 @@ import CaseStudyCarousel from 'components/case-study-carousel'
 export default function HomePage() {
   return (
     <div className="p-home">
-      <CtaHero />
+      <CtaHero
+        title="Service Mesh for any runtime or cloud"
+        description="Consul automates networking for simple and secure application delivery."
+        links={[
+          {
+            type: 'none',
+            text: 'Download Consul',
+            url: '/downloads',
+          },
+          {
+            type: 'none',
+            text: 'Explore Tutorials',
+            url: 'https://learn.hashicorp.com/consul',
+          },
+        ]}
+        cta={{
+          title: 'Try HCP Consul',
+          description:
+            'A fully managed service mesh to discover and securely connect any service.',
+          link: {
+            text: 'Sign Up',
+            url:
+              'https://portal.cloud.hashicorp.com/sign-up?utm_source=consul_io&utm_content=hero',
+          },
+        }}
+      />
+
       <Callouts
         layout="two-up"
         product="neutral"
