@@ -73,7 +73,7 @@ export default function HomePage() {
         title="Consul with HashiCorp Stack"
         callouts={[
           {
-            icon: require('@hashicorp/mktg-logos/product/nomad/primary/color.svg'),
+            icon: require('@hashicorp/mktg-logos/product/nomad/logomark/color.svg?include'),
             title: 'Consul-Nomad Integration',
             description:
               'Secure Nomad jobs with Consul Service Mesh and use Traffic Splitting for zero-downtime, blue-green, canary deployments.',
@@ -85,7 +85,7 @@ export default function HomePage() {
             },
           },
           {
-            icon: require('@hashicorp/mktg-logos/product/terraform/primary/color.svg'),
+            icon: require('@hashicorp/mktg-logos/product/terraform/logomark/color.svg?include'),
             title: 'Infrastructure Automation with Consul',
             description:
               'Use the Terraform provider ecosystem to drive relevant changes to your infrastructure based on Consul services.',
@@ -97,7 +97,7 @@ export default function HomePage() {
             },
           },
           {
-            icon: require('@hashicorp/mktg-logos/product/vault/primary/color.svg'),
+            icon: require('@hashicorp/mktg-logos/product/vault/logomark/color.svg?include'),
             title: 'Secure Consul with Vault',
             description:
               'Integrate Consul with Vault and consul-template to securely store and rotate your encryption key and certificates.',

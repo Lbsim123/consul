@@ -1,7 +1,116 @@
 .calloutBlade {
-  padding: 56px 0;
+  padding-top: 56px;
+  padding-bottom: 56px;
+
+  & .contentWrapper {
+    & > h3 {
+      margin-top: 0;
+      margin-bottom: 48px;
+      @media (max-width: 1000px) {
+        margin-bottom: 28px;
+      }
+    }
+  }
 }
 
 .contentWrapper {
   composes: g-grid-container from global;
+}
+
+.callouts {
+  display: grid;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &.twoUp {
+    grid-template-columns: 1fr 1fr;
+    & li {
+      padding: 64px 64px;
+      display: flex;
+      flex-direction: row;
+
+      & .icon {
+        margin-right: 48px;
+      }
+    @media (max-width: 1200px) {
+        padding: 48px 32px;
+        flex-direction: column;
+        & .icon {
+          margin-right: 0;
+        }
+    }
+    }
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &.threeUp {
+    grid-template-columns: 1fr 1fr 1fr;
+    & li {
+      padding: 64px 32px;
+    }
+
+    @media (max-width: 1220px) {
+      grid-template-columns: 1fr;
+      & li {
+        padding: 48px 32px;
+      }
+    }
+  }
+
+  & li {
+    background: var(--gray-6);
+    &:hover {
+      background: var(--gray-5);
+    }
+
+    display: flex;
+    flex-direction: column;
+
+    & .icon {
+      margin-bottom: 16px;
+      & svg {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    & .flexWrapper {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+
+      & .infoWrapper {
+        display: flex;
+        flex-direction: column;
+
+        & > h5 {
+          margin-top: 0;
+          margin-bottom: 16px;
+        }
+
+        & > p {
+          color: var(--gray-3);
+          margin-top: 0;
+          margin-bottom: 48px;
+        }
+      }
+
+      & .linkWrapper {
+        & .eyebrow {
+          margin-bottom: 8px;
+        }
+        & :global(.g-btn) {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+.eyebrow {
+  composes: g-type-label from global;
 }
