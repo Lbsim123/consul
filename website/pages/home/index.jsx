@@ -1,6 +1,5 @@
 import UseCases from '@hashicorp/react-use-cases'
 import ProductFeaturesList from '@hashicorp/react-product-features-list'
-import LearnCallout from '@hashicorp/react-learn-callout'
 import MiniCTA from 'components/mini-cta'
 import HcpCalloutSection from 'components/hcp-callout-section'
 import CtaHero from 'components/cta-hero'
@@ -115,18 +114,6 @@ export default function HomePage() {
         heading="Why Consul?"
         features={[
           {
-            title: 'Service Mesh Across Any Runtime',
-            content:
-              'Deploy service mesh within any runtime or infrastructure - Bare Metal, Virtual Machines, and Kubernetes clusters, across any cloud.',
-            icon: require('./img/why-consul/consul_features_arrows.svg'),
-            link: {
-              type: 'inbound',
-              text: 'Learn more',
-              url:
-                'https://learn.hashicorp.com/collections/consul/kubernetes-deploy',
-            },
-          },
-          {
             title: 'Secure, Multi-Cloud Service Networking',
             content:
               'Secure services running in any environment leveraging intention based policies and automatic mTLS encryption between service mesh resources',
@@ -172,41 +159,6 @@ export default function HomePage() {
               text: 'Learn more',
               url: '/docs/integrate/partnerships',
             },
-          },
-          {
-            title: 'Integrate and Extend With Kubernetes',
-            content:
-              'Quickly deploy Consul on Kubernetes leveraging Helm. Automatically inject sidecars for Kubernetes resources. Federate multiple clusters into a single service mesh.',
-            icon: require('./img/why-consul/consul_features_kub.svg'),
-            link: {
-              type: 'inbound',
-              text: 'Learn more',
-              url:
-                'https://learn.hashicorp.com/tutorials/consul/service-mesh-deploy?utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS',
-            },
-          },
-        ]}
-      />
-
-      <LearnCallout
-        headline="Get hands-on experience with Consul"
-        product="consul"
-        items={[
-          {
-            title: 'Deploy HCP Consul with Terraform',
-            category: 'Step-by-Step Tutorial',
-            time: '12 mins',
-            link:
-              'https://learn.hashicorp.com/tutorials/cloud/terraform-hcp-consul-provider',
-            image: require('./img/learn/getting-started.svg?url'),
-          },
-          {
-            title: 'Migrate to Microservices on Kubernetes',
-            category: 'Step-by-Step Tutorials',
-            time: '45 mins',
-            link:
-              'https://learn.hashicorp.com/collections/consul/microservices',
-            image: require('./img/learn/kubernetes.svg?url'),
           },
         ]}
       />
