@@ -239,8 +239,7 @@ func (l *State) ServiceToken(id structs.ServiceID) string {
 }
 
 // aclTokenForServiceSync returns an ACL token associated with a service. If there is
-// no ACL token associated with the service, falls back to the agent token, then to the
-// user default token.
+// no ACL token associated with the service, falls back to to the user default token.
 // This method is not synchronized and the lock must already be held.
 func (l *State) aclTokenForServiceSync(id structs.ServiceID) string {
 	var token string
@@ -248,7 +247,7 @@ func (l *State) aclTokenForServiceSync(id structs.ServiceID) string {
 		token = s.Token
 	}
 	if token == "" {
-		token = l.tokens.AgentToken()
+		token = l.tokens.UserToken()
 	}
 	return token
 }
@@ -457,8 +456,7 @@ func (l *State) CheckToken(id structs.CheckID) string {
 }
 
 // aclTokenForCheckSync returns an ACL token associated with a check. If there is
-// no ACL token associated with the check, falls back to the agent token, then to the
-// user default token.
+// no ACL token associated with the check, falls back to the the user default token.
 // This method is not synchronized and the lock must already be held.
 func (l *State) aclTokenForCheckSync(id structs.CheckID) string {
 	var token string
@@ -467,7 +465,7 @@ func (l *State) aclTokenForCheckSync(id structs.CheckID) string {
 		token = c.Token
 	}
 	if token == "" {
-		token = l.tokens.AgentToken()
+		token = l.tokens.UserToken()
 	}
 	return token
 }
@@ -1142,8 +1140,7 @@ func (l *State) deleteService(key structs.ServiceID) error {
 		return fmt.Errorf("ServiceID missing")
 	}
 
-	st := l.aclTokenForServiceSync(key)
-
+	st := l.tokens.AgentToken()
 	req := structs.DeregisterRequest{
 		Datacenter:     l.config.Datacenter,
 		Node:           l.config.NodeName,
@@ -1192,7 +1189,7 @@ func (l *State) deleteCheck(key structs.CheckID) error {
 		return fmt.Errorf("CheckID missing")
 	}
 
-	ct := l.aclTokenForCheckSync(key)
+	ct := l.tokens.AgentToken()
 	req := structs.DeregisterRequest{
 		Datacenter:     l.config.Datacenter,
 		Node:           l.config.NodeName,
